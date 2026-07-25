@@ -39,14 +39,14 @@ if not _ENABLE_EMULATE:
     ]
 
 App(
-    appid="protocabrax",
-    name="Protocabrax",
+    appid="subghz_mt_expert",
+    name="SubGhz MT Expert",
     apptype=FlipperAppType.EXTERNAL,
     targets=["f7"],
     entry_point="protopirate_app",
     requires=["gui"],
     stack_size=2 * 1024,
-    fap_description="Decode car key fob signals from Sub-GHz — improved fork",
+    fap_description="Ultimate SubGHz multitool from Sub-GHz — improved fork",
     fap_version="1.0",
     fap_icon="images/protopirate_10px.png",
     fap_category="Sub-GHz",

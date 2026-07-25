@@ -968,7 +968,7 @@ static bool emulate_input_callback(InputEvent* event, void* context) {
             app->view_dispatcher, ProtoPirateCustomEventEmulateTransmit);
 
         return true;
-    } else if(event->type == InputTypeRepeat) {
+    } else if(event->type == InputTypeLong) {
         // Catch-up: hold button 1 sec = +50 counter
         if(ctx && !ctx->replay_only) {
             ctx->current_counter += 50;

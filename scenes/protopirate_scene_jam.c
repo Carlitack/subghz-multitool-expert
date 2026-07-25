@@ -1,4 +1,4 @@
-// scenes/protopirate_scene_jam.c — Simple 433 MHz jammer
+// scenes/protopirate_scene_jam.c — Simple 433 MHz jammer (fixed)
 #include "../protopirate_app_i.h"
 #include <lib/subghz/devices/devices.h>
 #include <lib/subghz/transmitter.h>
@@ -15,11 +15,18 @@ static JamContext* jam_ctx = NULL;
 void protopirate_scene_jam_on_enter(void* context) {
     ProtoPirateApp* app = context;
     
-    if(!jam_ctx) {
-        jam_ctx = malloc(sizeof(JamContext));
-        jam_ctx->active = false;
-        jam_ctx->transmitter = NULL;
+    // Clean up any previous instance (prevents leak on re-entry)
+    if(jam_ctx) {
+        if(jam_ctx->transmitter) {
+            subghz_transmitter_stop(jam_ctx->transmitter);
+            subghz_transmitter_free(jam_ctx->transmitter);
+        }
+        free(jam_ctx);
     }
+
+    jam_ctx = malloc(sizeof(JamContext));
+    jam_ctx->active = false;
+    jam_ctx->transmitter = NULL;
 
     if(!protopirate_radio_init(app)) {
         notification_message(app->notifications, &sequence_error);
@@ -30,7 +37,7 @@ void protopirate_scene_jam_on_enter(void* context) {
     jam_ctx->active = true;
     widget_reset(app->widget);
     widget_add_text_scroll_element(app->widget, 0, 0, 128, 64,
-        "JAMMING 433 MHz\n\nActive - blocking signals\nPress BACK to stop");
+        "JAMMING 433 MHz\n\nActive - blocking signals\nPress BACK to stop\n\nTip: use before capturing\nto prevent original keyfob\nfrom reaching the car");
     view_dispatcher_switch_to_view(app->view_dispatcher, ProtoPirateViewWidget);
 }
 
@@ -42,6 +49,7 @@ bool protopirate_scene_jam_on_event(void* context, SceneManagerEvent event) {
 
 void protopirate_scene_jam_on_exit(void* context) {
     ProtoPirateApp* app = context;
+    UNUSED(app);
     if(jam_ctx) {
         jam_ctx->active = false;
         if(jam_ctx->transmitter) {
@@ -52,5 +60,4 @@ void protopirate_scene_jam_on_exit(void* context) {
         free(jam_ctx);
         jam_ctx = NULL;
     }
-    widget_reset(app->widget);
 }

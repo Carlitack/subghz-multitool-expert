@@ -65,7 +65,7 @@ static void barriers_decoder_feed(void* ctx, bool level, uint32_t duration) {
                     }
                 }
                 ins->generic.data = data;
-                (unsigned int)ins->generic.data_count_bit = ins->bit_count;
+                ins->generic.data_count_bit = ins->bit_count;
                 // Notify decoder
                 SubGhzProtocolDecoderBase* base = &ins->base;
                 if(base->callback) {

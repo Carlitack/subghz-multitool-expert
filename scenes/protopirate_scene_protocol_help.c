@@ -215,9 +215,9 @@ static const char* help_text =
     "  signal expire (Renault).\n"
     "\n"
     "COMPTEUR ROLLING:\n"
-    "- Hold OK 1 sec = catch-up
-      +50 (utile si ouverture
-      longtemps apres capture)"
+    "- Hold OK 1 sec = catch-up\n"
+    "+50 (utile si ouverture\n"
+    "longtemps apres capture)\n"
     "- S'arrete si on eteint l'app.\n"
     "  Pas restaure au redemarrage\n"
     "- Kia Sorento/Carnival 2020+:\n"

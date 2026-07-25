@@ -1,6 +1,6 @@
 // protocols/barriers.c — Generic barrier/gate fixed-code detector
 #include "protocols_common.h"
-#include "barriers.h"
+
 
 #define TAG "Barriers"
 #define BARRIER_UPLOAD_CAPACITY 0x200U
@@ -15,11 +15,6 @@ struct SubGhzProtocolDecoderBarriers {
     SubGhzBlockGeneric generic;
 };
 
-struct SubGhzProtocolEncoderBarriers {
-    SubGhzProtocolEncoderBase base;
-    SubGhzProtocolBlockEncoder encoder;
-    SubGhzBlockGeneric generic;
-};
 
 static const SubGhzBlockConst barriers_const = {
     .te_short = 300,
@@ -33,7 +28,7 @@ static void* barriers_decoder_alloc(SubGhzEnvironment* environment) {
     struct SubGhzProtocolDecoderBarriers* instance = malloc(sizeof(*instance));
     memset(instance, 0, sizeof(*instance));
     instance->generic.protocol_name = "Barrier/Gate";
-    instance->generic.protocol_name_ru = "Барьер/Ворота";
+    
     return instance;
 }
 
@@ -94,28 +89,10 @@ const SubGhzProtocolDecoder subghz_protocol_barriers_decoder = {
     .type = SubGhzProtocolDecoderTypeStatic,
 };
 
-static void* barriers_encoder_alloc(SubGhzEnvironment* environment) {
-    UNUSED(environment);
-    struct SubGhzProtocolEncoderBarriers* instance = malloc(sizeof(*instance));
-    memset(instance, 0, sizeof(*instance));
-    instance->generic.protocol_name = "Barrier/Gate";
-    return instance;
-}
-
-static void barriers_encoder_free(void* context) {
-    free(context);
-}
-
-static SubGhzProtocolEncoderStatus barriers_encoder_yield(void* context, SubGhzBlockGeneric* generic) {
     UNUSED(context);
     UNUSED(generic);
     return SubGhzProtocolEncoderStatusError;
 }
 
 const SubGhzProtocolEncoder subghz_protocol_barriers_encoder = {
-    .alloc = barriers_encoder_alloc,
-    .free = barriers_encoder_free,
-    .deserialize = NULL,
-    .stop = NULL,
-    .yield = barriers_encoder_yield,
 };

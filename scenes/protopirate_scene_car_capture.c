@@ -44,7 +44,7 @@ static void car_capture_callback(void* context, uint32_t index) {
         if(index < count && models[index]) {
             const CarPreset* p = models[index];
             app->auto_save = true;
-            if(app->txrx && app->txrx->preset) {
+            if(app->txrx && app->txrx->preset && app->txrx->preset->name && p->mod && p->frequency) {
                 furi_string_set_str(app->txrx->preset->name, p->mod);
                 app->txrx->preset->frequency = p->frequency;
             }

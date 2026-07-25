@@ -3,10 +3,10 @@
 
 #define TAG "Barriers"
 
-// Timing for common AM/OOK barriers (Came, Nice, FAAC, Hormann)
-#define BARRIERS_TE_SHORT  300   // 300µs short pulse
-#define BARRIERS_TE_LONG   650   // 650µs long pulse  
-#define BARRIERS_TE_DELTA  200   // 200µs tolerance
+// Timing verified from CAME bruteforce .sub (320/640µs AM650)
+#define BARRIERS_TE_SHORT  320
+#define BARRIERS_TE_LONG   640
+#define BARRIERS_TE_DELTA  120
 #define BARRIERS_MIN_BITS   24   // Minimum bits for a valid frame
 #define BARRIERS_MAX_BITS   64   // Maximum bits for a barrier code
 #define BARRIERS_GAP_MIN   8000  // 8ms minimum gap between frames

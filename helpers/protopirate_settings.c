@@ -20,6 +20,7 @@ void protopirate_settings_set_defaults(ProtoPirateSettings* settings) {
     settings->hopping_enabled = false;
     settings->emulate_feature_enabled = true;
     settings->check_saved = false;
+    settings->prefer_external_radio = true;
 }
 
 void protopirate_settings_load(ProtoPirateSettings* settings) {

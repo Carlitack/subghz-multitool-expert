@@ -968,6 +968,22 @@ static bool emulate_input_callback(InputEvent* event, void* context) {
             app->view_dispatcher, ProtoPirateCustomEventEmulateTransmit);
 
         return true;
+    } else if(event->type == InputTypeRepeat) {
+        // Catch-up: hold button 1 sec = +50 counter
+        if(ctx && !ctx->replay_only) {
+            ctx->current_counter += 50;
+            uint8_t button = emu_button_for_protocol(
+                furi_string_get_cstr(ctx->protocol_name),
+                event->key,
+                ctx->original_button,
+                ctx->flipper_format);
+            emulate_update_data(ctx, button);
+            if(g_host_api && g_host_api->save_capture_to_path && app->loaded_file_path) {
+                g_host_api->save_capture_to_path(
+                    ctx->flipper_format, furi_string_get_cstr(app->loaded_file_path));
+            }
+        }
+        return true;
     } else if(event->type == InputTypeRelease) {
         if(ctx && ctx->is_transmitting) {
             view_dispatcher_send_custom_event(

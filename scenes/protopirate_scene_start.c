@@ -1,7 +1,7 @@
 // scenes/protopirate_scene_start.c — Pandora-style simplified menu
 #include "../protopirate_app_i.h"
 
-#include "protocabrax_icons.h"
+#include "subghz_mt_expert_icons.h"
 
 #define TAG "ProtoPirateSceneStart"
 

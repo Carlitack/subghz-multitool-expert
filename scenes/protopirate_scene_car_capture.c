@@ -64,6 +64,7 @@ void protopirate_scene_car_capture_on_enter(void* context) {
         submenu_reset(app->submenu);
         submenu_set_header(app->submenu, "Marque");
         for(uint8_t i = 0; CAR_BRANDS[i] && i < 24; i++) {
+            if(CAR_BRANDS[i][0] == '-') continue; // Skip separators
             submenu_add_item(app->submenu, CAR_BRANDS[i], i, car_capture_callback, app);
         }
         scene_manager_set_scene_state(app->scene_manager, ProtoPirateSceneCarCapture, CarStepBrand);

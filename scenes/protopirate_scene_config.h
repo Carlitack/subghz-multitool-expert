@@ -7,6 +7,8 @@ ADD_SCENE(protopirate, start, Start)
 ADD_SCENE(protopirate, sub_decode, SubDecode)
 #endif
 ADD_SCENE(protopirate, car_capture, CarCapture)
+ADD_SCENE(protopirate, tools, Tools)
+ADD_SCENE(protopirate, jam, Jam)
 ADD_SCENE(protopirate, about, About)
 ADD_SCENE(protopirate, protocol_help, ProtocolHelp)
 ADD_SCENE(protopirate, export_csv, ExportCsv)

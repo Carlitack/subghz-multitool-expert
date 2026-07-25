@@ -1,68 +1,56 @@
 // scenes/protopirate_scene_start.c — Pandora-style simplified menu
 #include "../protopirate_app_i.h"
 
-#include "subghz_mt_expert_icons.h"
+#include "protocabrax_icons.h"
 
 #define TAG "ProtoPirateSceneStart"
 
 typedef enum {
-    SubmenuIndexProtoPirateCar,
-    SubmenuIndexProtoPirateEmulate,
-    SubmenuIndexProtoPirateTools,
-    SubmenuIndexProtoPirateGuide,
-} SubmenuIndexSimplified;
+    MenuCar = 0,
+    MenuEmulate,
+    MenuTools,
+    MenuGuide,
+} MenuItem;
 
-static void protopirate_scene_start_submenu_callback(void* context, uint32_t index) {
-    furi_check(context);
+static void start_cb(void* context, uint32_t index) {
     ProtoPirateApp* app = context;
     view_dispatcher_send_custom_event(app->view_dispatcher, index);
 }
 
 void protopirate_scene_start_on_enter(void* context) {
-    furi_check(context);
     ProtoPirateApp* app = context;
-
     protopirate_release_shared_radio_state(app);
 
     submenu_set_header(app->submenu, "SubGhz MT Expert");
-    submenu_add_item(app->submenu, "Voiture", SubmenuIndexProtoPirateCar,
-        protopirate_scene_start_submenu_callback, app);
-    submenu_add_item(app->submenu, "Emulation", SubmenuIndexProtoPirateEmulate,
-        protopirate_scene_start_submenu_callback, app);
-    submenu_add_item(app->submenu, "Outils", SubmenuIndexProtoPirateTools,
-        protopirate_scene_start_submenu_callback, app);
-    submenu_add_item(app->submenu, "Guide", SubmenuIndexProtoPirateGuide,
-        protopirate_scene_start_submenu_callback, app);
-
-    submenu_set_selected_item(
-        app->submenu, scene_manager_get_scene_state(app->scene_manager, ProtoPirateSceneStart));
-
+    submenu_add_item(app->submenu, "Voiture", MenuCar, start_cb, app);
+    submenu_add_item(app->submenu, "Emulation", MenuEmulate, start_cb, app);
+    submenu_add_item(app->submenu, "Outils", MenuTools, start_cb, app);
+    submenu_add_item(app->submenu, "Guide", MenuGuide, start_cb, app);
     view_dispatcher_switch_to_view(app->view_dispatcher, ProtoPirateViewSubmenu);
 }
 
 bool protopirate_scene_start_on_event(void* context, SceneManagerEvent event) {
-    furi_check(context);
     ProtoPirateApp* app = context;
-
     if(event.type == SceneManagerEventTypeCustom) {
-        if(event.event == SubmenuIndexProtoPirateCar) {
+        switch(event.event) {
+        case MenuCar:
             scene_manager_next_scene(app->scene_manager, ProtoPirateSceneCarCapture);
-        } else if(event.event == SubmenuIndexProtoPirateEmulate) {
+            return true;
+        case MenuEmulate:
             scene_manager_next_scene(app->scene_manager, ProtoPirateSceneSaved);
-        } else if(event.event == SubmenuIndexProtoPirateTools) {
-            scene_manager_next_scene(app->scene_manager, ProtoPirateSceneTimingTuner);
-        } else if(event.event == SubmenuIndexProtoPirateGuide) {
+            return true;
+        case MenuTools:
+            scene_manager_next_scene(app->scene_manager, ProtoPirateSceneTools);
+            return true;
+        case MenuGuide:
             scene_manager_next_scene(app->scene_manager, ProtoPirateSceneProtocolHelp);
+            return true;
         }
-    } else if(event.type == SceneManagerEventTypeBack) {
-        scene_manager_set_scene_state(
-            app->scene_manager, ProtoPirateSceneStart, 0);
     }
     return false;
 }
 
 void protopirate_scene_start_on_exit(void* context) {
-    furi_check(context);
     ProtoPirateApp* app = context;
     submenu_reset(app->submenu);
 }

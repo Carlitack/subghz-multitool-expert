@@ -18,6 +18,7 @@ static const char* CAR_BRANDS[] = {
     "Ford","Kia","Hyundai","VAG (VW/Audi)","PSA","Renault",
     "Fiat","Honda","Subaru","Mazda","Mitsubishi","Chrysler",
     "Toyota/Lexus","Nissan","BMW","Mercedes","Porsche",
+    "Suzuki","Land Rover","Jaguar",
     "StarLine","Scher-Khan","Came","Nice","FAAC","Hormann",NULL
 };
 
@@ -121,6 +122,18 @@ static const CarPreset CAR_PRESETS[] = {
     {"Nice", "Flo", 2000, 2024, 433920000, "AM650", 19, 0},
     {"FAAC", "SLH/Spa", 2000, 2024, 433920000, "AM650", 20, 0},
     {"Hormann", "HSM4/Bisecur", 2000, 2024, 868000000, "AM650", 21, 0},
+    // === VERIFIED from Quantum .sub files ===
+    {"Suzuki", "Swift/SX-4/Vitara", 2005, 2015, 433920000, "FM476", 2, 0},  // Uses Kia V0 proto
+    {"Land Rover", "Discovery 2", 1998, 2009, 433920000, "F4", 7, 0},         // Uses Honda V2 proto
+    {"Land Rover", "Freelander", 2000, 2010, 433920000, "F4", 7, 0},
+    {"Jaguar", "X-Type/S-Type", 2000, 2008, 433920000, "AM650", 0, 0},        // Uses Ford V0 proto
+    {"Jaguar", "XJ/XJR/XJ8", 2000, 2008, 433920000, "AM650", 0, 0},
+    // Added alarms (KeeLoq-based, works with StarLine proto)
+    {"StarLine", "Sheriff ZX-9xx", 2005, 2020, 433920000, "AM650", 16, 0},
+    {"StarLine", "Tomahawk TZ/TW", 2005, 2020, 433920000, "AM650", 16, 0},
+    {"StarLine", "Pantera CLK/XS", 2005, 2020, 433920000, "AM650", 16, 0},
+    {"StarLine", "Alligator S-275", 2005, 2020, 433920000, "AM650", 16, 0},
+    {"StarLine", "Cenmax ST-5/ST-7", 2005, 2020, 433920000, "AM650", 16, 0},
     {NULL, NULL, 0, 0, 0, NULL, 0, 0},
 };
 

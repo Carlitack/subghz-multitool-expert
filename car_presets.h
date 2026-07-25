@@ -15,11 +15,18 @@ typedef struct {
 } CarPreset;
 
 static const char* CAR_BRANDS[] = {
+    // === ROLLING CODE (vehicules) ===
     "Ford","Kia","Hyundai","VAG (VW/Audi)","PSA","Renault",
     "Fiat","Honda","Subaru","Mazda","Mitsubishi","Chrysler",
-    "Toyota/Lexus","Nissan","BMW","Mercedes","Porsche",
+    "Toyota/Lexus","Nissan","BMW","Porsche",
     "Suzuki","Land Rover","Jaguar",
-    "StarLine","Scher-Khan","Came","Nice","FAAC","Hormann",NULL
+    // === STATIC CODE (barrieres/portails) ===
+    "--- STATIC/CODE FIXE ---",
+    "Came","Nice","FAAC","Hormann",
+    "Chamberlain","LiftMaster",
+    // === ALARMES (KeeLoq) ===
+    "--- ALARMES ---",
+    "StarLine","Scher-Khan",NULL
 };
 
 static const CarPreset CAR_PRESETS[] = {
@@ -122,6 +129,9 @@ static const CarPreset CAR_PRESETS[] = {
     {"Nice", "Flo", 2000, 2024, 433920000, "AM650", 19, 0},
     {"FAAC", "SLH/Spa", 2000, 2024, 433920000, "AM650", 20, 0},
     {"Hormann", "HSM4/Bisecur", 2000, 2024, 868000000, "AM650", 21, 0},
+    // === SECURITY+ 2.0 (Chamberlain rolling code — 390 MHz!) ===
+    {"Chamberlain", "Security+ 2.0", 2010, 2024, 390000000, "AM650", 0, 0},
+    {"LiftMaster", "Security+ 2.0", 2010, 2024, 390000000, "AM650", 0, 0},
     // === VERIFIED from Quantum .sub files ===
     {"Suzuki", "Swift/SX-4/Vitara", 2005, 2015, 433920000, "FM476", 2, 0},  // Uses Kia V0 proto
     {"Land Rover", "Discovery 2", 1998, 2009, 433920000, "F4", 7, 0},         // Uses Honda V2 proto

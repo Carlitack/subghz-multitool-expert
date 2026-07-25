@@ -15,11 +15,17 @@ typedef struct {
 } CarPreset;
 
 static const char* CAR_BRANDS[] = {
-    // === ROLLING CODE (vehicules) ===
-    "Ford","Kia","Hyundai","VAG (VW/Audi)","PSA","Renault",
-    "Fiat","Honda","Subaru","Mazda","Mitsubishi","Chrysler",
-    "Toyota/Lexus","Nissan","BMW","Porsche",
-    "Suzuki","Land Rover","Jaguar",
+    // === ROLLING CODE - ASIATIQUES ===
+    "Kia","Hyundai","Honda","Toyota/Lexus","Nissan",
+    "Mazda","Mitsubishi","Subaru","Suzuki",
+    // === ROLLING CODE - EUROPEENS ===
+    "VAG (VW/Audi)","PSA","Renault","Fiat","BMW","Porsche",
+    "Opel",
+    // === ROLLING CODE - AMERICAINS ===
+    "Ford","Chrysler","Jeep","Dodge",
+    // === ROLLING CODE - PREMIUM ===
+    "Land Rover","Jaguar",
+    "Abarth","Alfa Romeo","Lancia","Maserati","Ferrari",
     // === STATIC CODE (barrieres/portails) ===
     "--- STATIC/CODE FIXE ---",
     "Came","Nice","FAAC","Hormann",
@@ -144,6 +150,43 @@ static const CarPreset CAR_PRESETS[] = {
     {"StarLine", "Pantera CLK/XS", 2005, 2020, 433920000, "AM650", 16, 0},
     {"StarLine", "Alligator S-275", 2005, 2020, 433920000, "AM650", 16, 0},
     {"StarLine", "Cenmax ST-5/ST-7", 2005, 2020, 433920000, "AM650", 16, 0},
+// === QUANTUM CFW 3.3 NEW ===
+    // FCA Group (up to 2016)
+    {"Chrysler", "300C/PT Cruiser", 2000, 2016, 315000000, "AM650", 12, 0},
+    {"Jeep", "Grand Cherokee/Wrangler", 2000, 2010, 315000000, "AM650", 12, 0},
+    {"Dodge", "Ram/Charger/Durango", 2000, 2010, 315000000, "AM650", 12, 0},
+    {"Fiat", "500/Panda/Punto", 2007, 2016, 433920000, "AM650", 6, 0},
+    {"Abarth", "500/595/695", 2008, 2016, 433920000, "AM650", 6, 0},
+    {"Alfa Romeo", "Giulietta/MiTo", 2008, 2016, 433920000, "AM650", 6, 0},
+    {"Lancia", "Delta/Ypsilon", 2008, 2016, 433920000, "AM650", 6, 0},
+    {"Maserati", "Ghibli/Quattroporte", 2013, 2016, 433920000, "AM650", 6, 0},
+    {"Ferrari", "458/488/California", 2009, 2016, 433920000, "AM650", 6, 0},
+    // Honda extended (CVE 2022)
+    {"Honda", "Civic CVE", 2016, 2022, 433920000, "Honda1", 7, 0},
+    {"Honda", "CR-V", 2016, 2022, 433920000, "AM650", 7, 0},
+    // Hyundai/Kia extended to 2026
+    {"Hyundai", "Accent/Solaris", 2020, 2026, 433920000, "FM476", 3, 0},
+    {"Hyundai", "Tucson/Santa Fe", 2020, 2026, 433920000, "FM476", 3, 0},
+    {"Hyundai", "Elantra/i30", 2020, 2026, 433920000, "FM476", 3, 0},
+    {"Kia", "Rio/Cerato", 2021, 2026, 433920000, "FM476", 3, 0},
+    {"Kia", "Sportage/Sorento", 2021, 2026, 433920000, "FM476", 3, 7},
+    // Ford FM keys up to 2024 + Keyless
+    {"Ford", "Focus/Kuga P/S", 2018, 2024, 433920000, "F4", 1, 0},
+    {"Ford", "Fiesta/Puma", 2018, 2024, 433920000, "F4", 1, 0},
+    {"Ford", "Transit Custom", 2018, 2024, 433920000, "F4", 1, 0},
+    // Mazda Siemens/Visteon keys
+    {"Mazda", "CX-5/CX-7", 2012, 2020, 433920000, "AM650", 10, 0},
+    {"Mazda", "RX-8", 2003, 2012, 433920000, "AM650", 10, 0},
+    // Opel/Nissan commercial
+    {"Opel", "Movano", 1998, 2003, 433920000, "AM650", 8, 0},
+    // Renault extended
+    {"Renault", "Kangoo", 1998, 2002, 433920000, "AM650", 8, 0},
+    {"Renault", "Twingo 1", 1999, 2001, 433920000, "AM650", 8, 0},
+    {"Renault", "Master 2", 1998, 2003, 433920000, "AM650", 8, 0},
+    // Suzuki extended to 2022
+    {"Suzuki", "Grand Vitara", 2005, 2022, 433920000, "FM476", 2, 0},
+    {"Suzuki", "Swift/SX4", 2010, 2022, 433920000, "FM476", 2, 0},
+    {"Mitsubishi", "ASX/Colt", 2010, 2022, 433920000, "FM476", 11, 0},
     {NULL, NULL, 0, 0, 0, NULL, 0, 0},
 };
 

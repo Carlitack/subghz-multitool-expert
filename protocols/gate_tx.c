@@ -23,12 +23,6 @@ struct SubGhzProtocolDecoderGateTx {
     SubGhzBlockGeneric generic;
 };
 
-struct SubGhzProtocolEncoderGateTx {
-    SubGhzProtocolEncoderBase base;
-
-    SubGhzProtocolBlockEncoder encoder;
-    SubGhzBlockGeneric generic;
-};
 
 typedef enum {
     GateTXDecoderStepReset = 0,

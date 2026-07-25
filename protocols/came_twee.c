@@ -59,12 +59,6 @@ struct SubGhzProtocolDecoderCameTwee {
     ManchesterState manchester_saved_state;
 };
 
-struct SubGhzProtocolEncoderCameTwee {
-    SubGhzProtocolEncoderBase base;
-
-    SubGhzProtocolBlockEncoder encoder;
-    SubGhzBlockGeneric generic;
-};
 
 typedef enum {
     CameTweeDecoderStepReset = 0,

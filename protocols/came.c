@@ -37,12 +37,6 @@ struct SubGhzProtocolDecoderCame {
     SubGhzBlockGeneric generic;
 };
 
-struct SubGhzProtocolEncoderCame {
-    SubGhzProtocolEncoderBase base;
-
-    SubGhzProtocolBlockEncoder encoder;
-    SubGhzBlockGeneric generic;
-};
 
 typedef enum {
     CameDecoderStepReset = 0,

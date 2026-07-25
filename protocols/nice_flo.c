@@ -22,12 +22,6 @@ struct SubGhzProtocolDecoderNiceFlo {
     SubGhzBlockGeneric generic;
 };
 
-struct SubGhzProtocolEncoderNiceFlo {
-    SubGhzProtocolEncoderBase base;
-
-    SubGhzProtocolBlockEncoder encoder;
-    SubGhzBlockGeneric generic;
-};
 
 typedef enum {
     NiceFloDecoderStepReset = 0,

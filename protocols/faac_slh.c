@@ -42,15 +42,6 @@ struct SubGhzProtocolDecoderFaacSLH {
     const char* manufacture_name;
 };
 
-struct SubGhzProtocolEncoderFaacSLH {
-    SubGhzProtocolEncoderBase base;
-
-    SubGhzProtocolBlockEncoder encoder;
-    SubGhzBlockGeneric generic;
-
-    SubGhzKeystore* keystore;
-    const char* manufacture_name;
-};
 
 typedef enum {
     FaacSLHDecoderStepReset = 0,

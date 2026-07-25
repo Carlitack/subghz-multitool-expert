@@ -53,12 +53,6 @@ struct SubGhzProtocolDecoderChamb_Code {
     SubGhzBlockGeneric generic;
 };
 
-struct SubGhzProtocolEncoderChamb_Code {
-    SubGhzProtocolEncoderBase base;
-
-    SubGhzProtocolBlockEncoder encoder;
-    SubGhzBlockGeneric generic;
-};
 
 typedef enum {
     Chamb_CodeDecoderStepReset = 0,

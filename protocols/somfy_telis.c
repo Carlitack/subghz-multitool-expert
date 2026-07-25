@@ -29,12 +29,6 @@ struct SubGhzProtocolDecoderSomfyTelis {
     ManchesterState manchester_saved_state;
 };
 
-struct SubGhzProtocolEncoderSomfyTelis {
-    SubGhzProtocolEncoderBase base;
-
-    SubGhzProtocolBlockEncoder encoder;
-    SubGhzBlockGeneric generic;
-};
 
 typedef enum {
     SomfyTelisDecoderStepReset = 0,

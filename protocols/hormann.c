@@ -25,12 +25,6 @@ struct SubGhzProtocolDecoderHormann {
     SubGhzBlockGeneric generic;
 };
 
-struct SubGhzProtocolEncoderHormann {
-    SubGhzProtocolEncoderBase base;
-
-    SubGhzProtocolBlockEncoder encoder;
-    SubGhzBlockGeneric generic;
-};
 
 typedef enum {
     HormannDecoderStepReset = 0,
@@ -49,7 +43,7 @@ const SubGhzProtocolDecoder subghz_protocol_hormann_decoder = {
     .reset = subghz_protocol_decoder_hormann_reset,
 
     .get_hash_data = NULL,
-    .get_hash_data_long = subghz_protocol_decoder_hormann_get_hash_data,
+    .get_hash_data = subghz_protocol_decoder_hormann_get_hash_data,
     .serialize = subghz_protocol_decoder_hormann_serialize,
     .deserialize = subghz_protocol_decoder_hormann_deserialize,
     .get_string = subghz_protocol_decoder_hormann_get_string,
@@ -296,7 +290,7 @@ static void subghz_protocol_hormann_check_remote_controller(SubGhzBlockGeneric* 
 uint32_t subghz_protocol_decoder_hormann_get_hash_data(void* context) {
     furi_assert(context);
     SubGhzProtocolDecoderHormann* instance = context;
-    return subghz_protocol_blocks_get_hash_data_long(
+    return subghz_protocol_blocks_get_hash_data(
         &instance->decoder, (instance->decoder.decode_count_bit / 8) + 1);
 }
 

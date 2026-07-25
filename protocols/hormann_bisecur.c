@@ -35,14 +35,6 @@ struct SubGhzProtocolDecoderHormannBiSecur {
     uint8_t crc;
 };
 
-struct SubGhzProtocolEncoderHormannBiSecur {
-    SubGhzProtocolEncoderBase base;
-
-    SubGhzProtocolBlockEncoder encoder;
-    SubGhzBlockGeneric generic;
-
-    uint8_t data[22];
-};
 
 typedef enum {
     HormannBiSecurDecoderStepReset = 0,

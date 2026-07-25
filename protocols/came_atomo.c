@@ -8,7 +8,7 @@
 
 
 
-#include "../blocks/custom_btn_i.h"
+#include "custom_btn_i.h"
 
 #define TAG "SubGhzProtocoCameAtomo"
 
@@ -28,12 +28,6 @@ struct SubGhzProtocolDecoderCameAtomo {
     ManchesterState manchester_saved_state;
 };
 
-struct SubGhzProtocolEncoderCameAtomo {
-    SubGhzProtocolEncoderBase base;
-
-    SubGhzProtocolBlockEncoder encoder;
-    SubGhzBlockGeneric generic;
-};
 
 typedef enum {
     CameAtomoDecoderStepReset = 0,

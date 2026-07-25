@@ -7,7 +7,7 @@
 
 
 
-#include "../blocks/custom_btn_i.h"
+#include "custom_btn_i.h"
 
 /*
  * https://phreakerclub.com/1615
@@ -37,14 +37,6 @@ struct SubGhzProtocolDecoderNiceFlorS {
     uint64_t data;
 };
 
-struct SubGhzProtocolEncoderNiceFlorS {
-    SubGhzProtocolEncoderBase base;
-
-    SubGhzProtocolBlockEncoder encoder;
-    SubGhzBlockGeneric generic;
-
-    const char* nice_flor_s_rainbow_table_file_name;
-};
 
 typedef enum {
     NiceFlorSDecoderStepReset = 0,

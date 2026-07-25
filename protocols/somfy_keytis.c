@@ -28,12 +28,6 @@ struct SubGhzProtocolDecoderSomfyKeytis {
     uint32_t press_duration_counter;
 };
 
-struct SubGhzProtocolEncoderSomfyKeytis {
-    SubGhzProtocolEncoderBase base;
-
-    SubGhzProtocolBlockEncoder encoder;
-    SubGhzBlockGeneric generic;
-};
 
 typedef enum {
     SomfyKeytisDecoderStepReset = 0,

@@ -2,7 +2,7 @@
 #pragma once
 
 #include "protocols_common.h"
-#include "public_api.h"
+#include "protocols/public_api.h"
 
 #define SUBGHZ_PROTOCOL_SECPLUS_V2_NAME "Security+ 2.0"
 

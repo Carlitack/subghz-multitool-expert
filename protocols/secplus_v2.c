@@ -1,7 +1,7 @@
 #include "protocols_common.h"
 #include "secplus_v2.h"
 #include <lib/toolbox/manchester_decoder.h>
-#include <lib/toolbox/manchester_encoder.h>
+
 
 
 
@@ -41,13 +41,6 @@ struct SubGhzProtocolDecoderSecPlus_v2 {
     uint64_t secplus_packet_1;
 };
 
-struct SubGhzProtocolEncoderSecPlus_v2 {
-    SubGhzProtocolEncoderBase base;
-
-    SubGhzProtocolBlockEncoder encoder;
-    SubGhzBlockGeneric generic;
-    uint64_t secplus_packet_1;
-};
 
 typedef enum {
     SecPlus_v2DecoderStepReset = 0,

@@ -44,14 +44,6 @@ struct SubGhzProtocolDecoderSecPlus_v1 {
     uint8_t data_array[44];
 };
 
-struct SubGhzProtocolEncoderSecPlus_v1 {
-    SubGhzProtocolEncoderBase base;
-
-    SubGhzProtocolBlockEncoder encoder;
-    SubGhzBlockGeneric generic;
-
-    uint8_t data_array[44];
-};
 
 typedef enum {
     SecPlus_v1DecoderStepReset = 0,

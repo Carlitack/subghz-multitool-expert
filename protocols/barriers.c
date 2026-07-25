@@ -57,18 +57,15 @@ static void barriers_decoder_feed(void* ctx, bool level, uint32_t duration) {
            duration > BARRIERS_GAP_MIN) {
             // Valid frame detected
             if(ins->bit_count >= BARRIERS_MIN_BITS) {
-                // Build data bytes from bits
-                uint8_t byte_count = (ins->bit_count + 7) / 8;
-                for(uint8_t i = 0; i < byte_count && i < 8; i++) {
-                    ins->generic.data[i] = 0;
-                    for(uint8_t b = 0; b < 8; b++) {
-                        uint8_t idx = i * 8 + b;
-                        if(idx < ins->bit_count && ins->bits[idx]) {
-                            ins->generic.data[i] |= (1 << (7 - b));
-                        }
+                // Store bits as uint64_t
+                uint64_t data = 0;
+                for(uint8_t i = 0; i < ins->bit_count && i < 64; i++) {
+                    if(ins->bits[i / 8] & (1 << (7 - (i % 8)))) {
+                        data |= (1ULL << (63 - i));
                     }
                 }
-                ins->generic.data_count_bit = ins->bit_count;
+                ins->generic.data = data;
+                (unsigned int)ins->generic.data_count_bit = ins->bit_count;
                 // Notify decoder
                 SubGhzProtocolDecoderBase* base = &ins->base;
                 if(base->callback) {
@@ -124,7 +121,7 @@ static SubGhzProtocolStatus barriers_deserialize(void* ctx, FlipperFormat* ff) {
 
 static void barriers_get_string(void* ctx, FuriString* output) {
     struct SubGhzProtocolDecoderBarriers* ins = ctx;
-    furi_string_cat_printf(output, "%s %lu bits", ins->generic.protocol_name, ins->generic.data_count_bit);
+    furi_string_cat_printf(output, "%s %u bits", ins->generic.protocol_name, (unsigned int)ins->generic.data_count_bit);
 }
 
 const SubGhzProtocolDecoder subghz_protocol_barriers_decoder = {

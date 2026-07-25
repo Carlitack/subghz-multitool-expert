@@ -1,6 +1,6 @@
 #pragma once
 
-#include "base.h"
+#include "protocols_common.h"
 
 #define SUBGHZ_PROTOCOL_GATE_TX_NAME "GateTX"
 

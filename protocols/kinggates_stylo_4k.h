@@ -1,5 +1,5 @@
 #pragma once
-#include "base.h"
+#include "protocols_common.h"
 
 #define SUBGHZ_PROTOCOL_KINGGATES_STYLO_4K_NAME "KingGates Stylo4k"
 

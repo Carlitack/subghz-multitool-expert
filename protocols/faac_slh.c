@@ -1,12 +1,13 @@
+#include "protocols_common.h"
 #include "faac_slh.h"
-#include "../subghz_keystore.h"
+#include <lib/subghz/subghz_keystore.h>
 #include <m-array.h>
 #include "keeloq_common.h"
-#include "../blocks/const.h"
-#include "../blocks/decoder.h"
-#include "../blocks/encoder.h"
-#include "../blocks/generic.h"
-#include "../blocks/math.h"
+
+
+
+
+
 
 #include "../blocks/custom_btn_i.h"
 

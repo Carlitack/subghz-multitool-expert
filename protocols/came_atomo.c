@@ -1,11 +1,12 @@
+#include "protocols_common.h"
 #include "came_atomo.h"
 #include <lib/toolbox/manchester_decoder.h>
 #include <lib/toolbox/manchester_encoder.h>
-#include "../blocks/const.h"
-#include "../blocks/decoder.h"
-#include "../blocks/encoder.h"
-#include "../blocks/generic.h"
-#include "../blocks/math.h"
+
+
+
+
+
 
 #include "../blocks/custom_btn_i.h"
 

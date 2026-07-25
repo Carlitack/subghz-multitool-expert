@@ -1,12 +1,13 @@
+#include "protocols_common.h"
 #include "kinggates_stylo_4k.h"
 #include "keeloq_common.h"
 
-#include "../subghz_keystore.h"
-#include "../blocks/const.h"
-#include "../blocks/decoder.h"
-#include "../blocks/encoder.h"
-#include "../blocks/generic.h"
-#include "../blocks/math.h"
+#include <lib/subghz/subghz_keystore.h>
+
+
+
+
+
 
 #include "../blocks/custom_btn_i.h"
 

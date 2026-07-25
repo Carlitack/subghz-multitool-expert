@@ -1,6 +1,6 @@
 #pragma once
 
-#include "base.h"
+#include "protocols_common.h"
 
 #define SUBGHZ_PROTOCOL_NICE_FLO_NAME "Nice FLO"
 

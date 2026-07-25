@@ -1,10 +1,11 @@
+#include "protocols_common.h"
 #include "nice_flor_s.h"
 
-#include "../blocks/const.h"
-#include "../blocks/decoder.h"
-#include "../blocks/encoder.h"
-#include "../blocks/generic.h"
-#include "../blocks/math.h"
+
+
+
+
+
 
 #include "../blocks/custom_btn_i.h"
 

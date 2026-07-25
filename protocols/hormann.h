@@ -1,6 +1,6 @@
 #pragma once
 
-#include "base.h"
+#include "protocols_common.h"
 
 #define SUBGHZ_PROTOCOL_HORMANN_HSM_NAME "Hormann HSM"
 

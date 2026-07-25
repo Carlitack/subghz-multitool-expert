@@ -1,11 +1,12 @@
+#include "protocols_common.h"
 #include "came_twee.h"
 #include <lib/toolbox/manchester_decoder.h>
 #include <lib/toolbox/manchester_encoder.h>
-#include "../blocks/const.h"
-#include "../blocks/decoder.h"
-#include "../blocks/encoder.h"
-#include "../blocks/generic.h"
-#include "../blocks/math.h"
+
+
+
+
+
 
 /*
  * Help

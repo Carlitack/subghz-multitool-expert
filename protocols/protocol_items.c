@@ -76,7 +76,6 @@ static const ProtoPirateProtocolCatalogEntry protopirate_protocol_catalog[] = {
 };
 
 static const ProtoPirateProtocolCatalogAlias protopirate_protocol_catalog_aliases[] = {
-    {"Barrier/Gate", ProtoPirateProtocolCatalogRouteAMDefault, NULL},
     {"StarLine", "Star Line"},
     {"Kia V3", "Kia V3/V4"},
     {"Kia V4", "Kia V3/V4"},

@@ -19,7 +19,7 @@ static const char* CAR_BRANDS[] = {
     "Ford","Kia","Hyundai","VAG (VW/Audi)","PSA","Renault",
     "Fiat","Honda","Subaru","Mazda","Mitsubishi","Chrysler",
     "Toyota/Lexus","Nissan","BMW","Mercedes","Porsche",
-    "StarLine","Scher-Khan","Came","Nice","FAAC","Hormann",NULL
+    "StarLine","Scher-Khan","Came","Nice","FAAC","Hormann",NULL};
 
 // Presets extracted from Pandora DXL5000+ & Fantom docs
 static const CarPreset CAR_PRESETS[] = {

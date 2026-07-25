@@ -7,7 +7,7 @@
 #include <furi.h>
 #include <stdio.h>
 
-#include "protocabrax_icons.h"
+#include "subghz_mt_expert_icons.h"
 
 #define FRAME_HEIGHT             12
 #define MAX_LEN_PX               112

@@ -1,6 +1,6 @@
 // scenes/protopirate_scene_need_saving.c
 #include "../protopirate_app_i.h"
-#include "protocabrax_icons.h"
+#include "subghz_mt_expert_icons.h"
 
 #define TAG "ProtoPirateNeedSaving"
 

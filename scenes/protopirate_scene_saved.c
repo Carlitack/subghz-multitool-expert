@@ -2,7 +2,7 @@
 #include "../protopirate_app_i.h"
 #include "../helpers/protopirate_storage.h"
 
-#include "protocabrax_icons.h"
+#include "subghz_mt_expert_icons.h"
 
 #define TAG "ProtoPirateSceneSaved"
 

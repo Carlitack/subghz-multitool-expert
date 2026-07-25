@@ -10,7 +10,7 @@
 #ifdef PROTOPIRATE_PSA_BF_PLUGIN_BUILD
 #include "protopirate_psa_bf_plugin_icons.h"
 #else
-#include "protocabrax_icons.h"
+#include "subghz_mt_expert_icons.h"
 #endif
 
 #define PSA_BF_PROGRESS_BAR_X 62

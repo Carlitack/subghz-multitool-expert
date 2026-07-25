@@ -3,7 +3,7 @@
 #include "../helpers/protopirate_storage.h"
 #include "../helpers/protopirate_psa_bf_host.h"
 #include "../protocols/protocol_items.h"
-#include "protocabrax_icons.h"
+#include "subghz_mt_expert_icons.h"
 #include <storage/storage.h>
 
 #define TAG "ProtoPirateReceiverInfo"

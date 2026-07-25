@@ -1,7 +1,7 @@
 // scenes/protopirate_scene_about.c
 #include "../protopirate_app_i.h"
 #include "../helpers/protopirate_settings.h"
-#include "protocabrax_icons.h"
+#include "subghz_mt_expert_icons.h"
 #include <gui/elements.h>
 #include <input/input.h>
 #include <dialogs/dialogs.h>

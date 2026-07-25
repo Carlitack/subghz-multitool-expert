@@ -3,7 +3,7 @@
 #include "../helpers/protopirate_storage.h"
 #include "../protocols/protocol_items.h"
 #include "../protocols/protocols_common.h"
-#include "protocabrax_icons.h"
+#include "subghz_mt_expert_icons.h"
 
 #define TAG "ProtoPirateSceneSavedInfo"
 

@@ -82,6 +82,7 @@ App(
         "protocols/psa_crypto.c",
         "protocols/renault_v0.c",
         "protocols/subaru.c",
+        "protocols/barriers.c",
         "protocols/star_line.c",
     ],
     fal_embedded=True,

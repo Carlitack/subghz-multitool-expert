@@ -60,6 +60,7 @@ static const ProtoPirateProtocolCatalogEntry protopirate_protocol_catalog[] = {
     {"PSA", ProtoPirateProtocolCatalogRouteByModulation, PROTOPIRATE_TX_KEY("psa")},
     {"Renault V0", ProtoPirateProtocolCatalogRouteAMDefault, PROTOPIRATE_TX_KEY("renault_v0")},
     {"Scher-Khan", ProtoPirateProtocolCatalogRouteFMDefault, NULL},
+    {"Barrier/Gate", ProtoPirateProtocolCatalogRouteAMDefault, NULL},
     {"Star Line", ProtoPirateProtocolCatalogRouteAMDefault, PROTOPIRATE_TX_KEY("star_line")},
     {"Came Top", ProtoPirateProtocolCatalogRouteAMDefault, NULL},
     {"Came Atomo", ProtoPirateProtocolCatalogRouteAMDefault, NULL},
@@ -75,6 +76,7 @@ static const ProtoPirateProtocolCatalogEntry protopirate_protocol_catalog[] = {
 };
 
 static const ProtoPirateProtocolCatalogAlias protopirate_protocol_catalog_aliases[] = {
+    {"Barrier/Gate", ProtoPirateProtocolCatalogRouteAMDefault, NULL},
     {"StarLine", "Star Line"},
     {"Kia V3", "Kia V3/V4"},
     {"Kia V4", "Kia V3/V4"},

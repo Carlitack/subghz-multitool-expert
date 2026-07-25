@@ -181,16 +181,6 @@ static void protopirate_scene_receiver_config_set_auto_save(VariableItem* item) 
 }
 
 static void protopirate_scene_receiver_config_set_check_saved(VariableItem* item) {
-
-static void protopirate_scene_receiver_config_set_radio(VariableItem* item) {
-    ProtoPirateApp* app = variable_item_get_context(item);
-    uint8_t index = variable_item_get_current_value_index(item);
-    const char* radio_text[] = {"Internal", "External"};
-    app->settings.prefer_external_radio = (index == 1);
-    variable_item_set_current_value_text(item, radio_text[index]);
-    // Radio change requires restart
-    protopirate_radio_deinit(app);
-}
     ProtoPirateApp* app = variable_item_get_context(item);
     uint8_t index = variable_item_get_current_value_index(item);
 
@@ -298,17 +288,33 @@ void protopirate_scene_receiver_config_on_enter(void* context) {
         "Check Saved:",
         CHECK_SAVED_COUNT,
         protopirate_scene_receiver_config_set_check_saved,
-
-static void protopirate_scene_receiver_config_set_radio(VariableItem* item) {
-    ProtoPirateApp* app = variable_item_get_context(item);
-    uint8_t index = variable_item_get_current_value_index(item);
-    const char* radio_text[] = {"Internal", "External"};
-    app->settings.prefer_external_radio = (index == 1);
-    variable_item_set_current_value_text(item, radio_text[index]);
-    // Radio change requires restart
-    protopirate_radio_deinit(app);
-}
         app);
     variable_item_set_current_value_index(item, app->check_saved ? 1 : 0);
     variable_item_set_current_value_text(item, check_saved_text[app->check_saved ? 1 : 0]);
 
+    variable_item_list_add(app->variable_item_list, "Lock Keyboard", 1, NULL, NULL);
+    variable_item_list_set_enter_callback(
+        app->variable_item_list, protopirate_scene_receiver_config_var_list_enter_callback, app);
+
+    view_dispatcher_switch_to_view(app->view_dispatcher, ProtoPirateViewVariableItemList);
+}
+
+bool protopirate_scene_receiver_config_on_event(void* context, SceneManagerEvent event) {
+    ProtoPirateApp* app = context;
+    bool consumed = false;
+
+    if(event.type == SceneManagerEventTypeCustom) {
+        if(event.event == ProtoPirateCustomEventSceneSettingLock) {
+            app->lock = ProtoPirateLockOn;
+            scene_manager_previous_scene(app->scene_manager);
+            consumed = true;
+        }
+    }
+    return consumed;
+}
+
+void protopirate_scene_receiver_config_on_exit(void* context) {
+    ProtoPirateApp* app = context;
+    variable_item_list_set_selected_item(app->variable_item_list, 0);
+    variable_item_list_reset(app->variable_item_list);
+}

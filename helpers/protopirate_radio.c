@@ -130,20 +130,13 @@ bool protopirate_radio_init(ProtoPirateApp* app) {
     subghz_environment_load_keystore(app->txrx->environment, PROTOPIRATE_KEYSTORE_DIR_NAME);
 
     subghz_devices_init();
+    FURI_LOG_D(TAG, "SubGhz devices initialized");
 
-    // Respect user radio preference
-    if(app->settings.prefer_external_radio) {
-        app->txrx->radio_device = radio_device_loader_set(NULL, SubGhzRadioDeviceTypeExternalCC1101);
-        if(!app->txrx->radio_device) {
-            FURI_LOG_W(TAG, "External not found, trying internal");
-            app->txrx->radio_device = radio_device_loader_set(NULL, SubGhzRadioDeviceTypeInternal);
-        }
-    } else {
+    app->txrx->radio_device = radio_device_loader_set(NULL, SubGhzRadioDeviceTypeExternalCC1101);
+
+    if(!app->txrx->radio_device) {
+        FURI_LOG_W(TAG, "External CC1101 not found, trying internal radio");
         app->txrx->radio_device = radio_device_loader_set(NULL, SubGhzRadioDeviceTypeInternal);
-        if(!app->txrx->radio_device) {
-            FURI_LOG_W(TAG, "Internal failed, trying external");
-            app->txrx->radio_device = radio_device_loader_set(NULL, SubGhzRadioDeviceTypeExternalCC1101);
-        }
     }
 
     if(!app->txrx->radio_device) {

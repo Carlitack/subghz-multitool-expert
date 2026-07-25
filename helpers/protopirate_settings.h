@@ -17,7 +17,6 @@ typedef struct {
     bool hopping_enabled;
     bool emulate_feature_enabled;
     bool check_saved;
-    bool prefer_external_radio;
 } ProtoPirateSettings;
 
 void protopirate_settings_load(ProtoPirateSettings* settings);

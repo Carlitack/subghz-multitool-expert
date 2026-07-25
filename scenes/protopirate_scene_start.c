@@ -46,8 +46,7 @@ bool protopirate_scene_start_on_event(void* context, SceneManagerEvent event) {
 
     if(event.type == SceneManagerEventTypeCustom) {
         if(event.event == SubmenuIndexProtoPirateCar) {
-            app->auto_save = true;
-            scene_manager_next_scene(app->scene_manager, ProtoPirateSceneReceiverConfig);
+            scene_manager_next_scene(app->scene_manager, ProtoPirateSceneCarCapture);
         } else if(event.event == SubmenuIndexProtoPirateEmulate) {
             scene_manager_next_scene(app->scene_manager, ProtoPirateSceneSaved);
         } else if(event.event == SubmenuIndexProtoPirateTools) {

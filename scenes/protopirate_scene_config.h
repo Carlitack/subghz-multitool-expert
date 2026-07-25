@@ -6,6 +6,7 @@ ADD_SCENE(protopirate, start, Start)
 #ifdef ENABLE_SUB_DECODE_SCENE
 ADD_SCENE(protopirate, sub_decode, SubDecode)
 #endif
+ADD_SCENE(protopirate, car_capture, CarCapture)
 ADD_SCENE(protopirate, about, About)
 ADD_SCENE(protopirate, protocol_help, ProtocolHelp)
 ADD_SCENE(protopirate, export_csv, ExportCsv)

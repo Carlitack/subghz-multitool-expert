@@ -20,7 +20,6 @@ static const char* CAR_BRANDS[] = {
     "Fiat","Honda","Subaru","Mazda","Mitsubishi","Chrysler",
     "Toyota/Lexus","Nissan","BMW","Mercedes","Porsche",
     "StarLine","Scher-Khan","Came","Nice","FAAC","Hormann",NULL
-};
 
 // Presets extracted from Pandora DXL5000+ & Fantom docs
 static const CarPreset CAR_PRESETS[] = {
@@ -170,7 +169,6 @@ static const CarPreset CAR_PRESETS[] = {
 
     // Sentinel
     {NULL, NULL, 0, 0, 0, NULL, 0, 0},
-};
 
 #define CAR_PRESETS_COUNT (sizeof(CAR_PRESETS)/sizeof(CAR_PRESETS[0]) - 1)
 
@@ -184,3 +182,19 @@ static inline uint8_t car_presets_by_brand(const char* brand, const CarPreset** 
     }
     return count;
 }
+
+    // Extended presets
+    {"Ford", "Edge", 2010, 2014, 433920000, "AM650", 0, 0},
+    {"Ford", "Fusion", 2002, 2012, 433920000, "AM650", 0, 0},
+    {"Nissan", "Juke", 2010, 2019, 433920000, "FM476", 14, 0},
+    {"Nissan", "Sentra", 2012, 2019, 433920000, "AM650", 14, 0},
+    {"Renault", "Scenic III", 2010, 2016, 433920000, "AM650", 8, 0},
+    {"Renault", "Kangoo", 2008, 2017, 433920000, "AM650", 8, 0},
+    {"Honda", "Stream", 2003, 2006, 433920000, "AM650", 7, 0},
+    {"Honda", "Insight", 2009, 2014, 433920000, "Honda1", 7, 0},
+    {"Toyota/Lexus", "Avensis", 2003, 2014, 433920000, "AM650", 13, 0},
+    {"BMW", "E Series", 2000, 2012, 433920000, "F4", 1, 0},
+    {"Porsche", "Cayenne", 2003, 2010, 433920000, "AM650", 15, 0},
+    // Sentinel
+    {NULL, NULL, 0, 0, 0, NULL, 0, 0},
+};
